@@ -1,4 +1,3 @@
-from datetime import datetime
 from db import db
 
 def pause():
@@ -155,6 +154,55 @@ def delete_course():
         print(f"Course {course_id} deleted successfully.")
     else:
         print(f"Deletion of course {course_id} cancelled.")
-            
 
-           
+def search_courses():
+    # Search for courses by name or teacher ID.
+    while True:
+        print("\nSearch Courses by:")
+        print("1 - Course ID")
+        print("2 - Course Name")
+        print("3 - Teacher ID")
+        print("0 - Return to previous menu\n")
+
+        myquery = {}
+        
+        choice = input("Enter your choice (0-3): ")
+        if choice == "0":
+            return  # go back to previous menu
+        elif choice == "1":
+            course_id = input("Enter course ID to search for: ")
+            myquery = {"_id": course_id}
+            results = db.courses.find(myquery)
+            result_count = db.courses.count_documents(myquery)
+        elif choice == "2":
+            course_name = input("Enter course name to search for: ")
+            myquery = {"name": {"$regex": course_name, "$options": "i"}}
+            results = db.courses.find(myquery)
+            result_count = db.courses.count_documents(myquery)
+        elif choice == "3":
+            teacher_id = input("Enter teacher ID to search for: ")
+            myquery = {"teacher_id": teacher_id}
+            results = db.courses.find(myquery)
+            result_count = db.courses.count_documents(myquery)
+        else:
+            print("Invalid choice, please try again.")
+            continue  # loop back to show again
+
+        # Display results
+        print()
+        if result_count == 0:
+            print("No courses found matching the criteria.")
+        else:
+            print(f"\nFound {result_count} course(s):")
+            for course in results:
+                for key, value in course.items():
+                    if key == "topics":
+                        print(f"{key}: {', '.join(value)}")
+                    else:
+                        print(f"{key}: {value}")
+                    print("-" * 20)
+        pause()
+
+            
+if __name__ == "__main__":
+    pass

@@ -265,4 +265,5 @@ def search_teacher():
         else:
             print("Invalid choice, please try again.")
             
-
+if __name__ == "__main__":
+    pass

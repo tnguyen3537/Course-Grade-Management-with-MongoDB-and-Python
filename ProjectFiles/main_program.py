@@ -1,6 +1,8 @@
 import teacher_crud
 import student_crud
 import course_crud
+import course_grade_crud
+import initializer
         
 def pause():
     input("Press Enter to continue...")
@@ -66,11 +68,15 @@ def course_menu():
         print("2 - Create Course")
         print("3 - Update Course")
         print("4 - Delete Course")
+        print("5 - Enter Course Grades")
+        print("6 - Modify Course Grade")
+        print("7 - Delete Course Grade")
+        print("8 - View Course Grades")
         print("0 - Return to Main Menu\n")
         choice = input("Enter your choice (0-4): ")
         
         if choice == "1":
-            course_crud.search_course()
+            course_crud.search_courses()
             pause()
         elif choice == "2":
             course_crud.create_course()
@@ -80,6 +86,18 @@ def course_menu():
             pause()
         elif choice == "4":
             course_crud.delete_course()
+            pause()
+        elif choice == "5":
+            course_grade_crud.enter_course_grades()
+            pause()
+        elif choice == "6":
+            course_grade_crud.modify_course_grades()
+            pause()
+        elif choice == "7":
+            course_grade_crud.delete_course_grades()
+            pause()
+        elif choice == "8":
+            course_grade_crud.view_course_grades()
             pause()
         elif choice == "0":
             return
@@ -101,6 +119,8 @@ def main():
         "2": student_menu,
         "3": course_menu
     }
+
+    # initializer.populate_database()
 
     while True:
         main_menu()
