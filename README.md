@@ -16,7 +16,7 @@ The goal is to illustrate how to work with **NoSQL data** in Python using **PyMo
 
 ## 🗂️ ER Diagram
 
-![ER Diagram](ProjectFiles\ERD.jpg)
+![ER Diagram](ProjectFiles/ERD.jpg)
 
 ---
 
