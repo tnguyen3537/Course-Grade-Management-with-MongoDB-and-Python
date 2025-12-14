@@ -1,4 +1,4 @@
-# Academic Course Grade Management using MongoDB database
+# Course Grade Management using MongoDB database
 
 ## 📌 Overview
 
@@ -28,6 +28,7 @@ The goal is to illustrate how to work with **NoSQL data** in Python using **PyMo
   - Search and view teacher details
   - Update teacher information (name, email, birth date, or all fields)
   - Delete teacher records with validation
+  - 
 
 - **Student Collection**
 
@@ -44,7 +45,7 @@ The goal is to illustrate how to work with **NoSQL data** in Python using **PyMo
   - Delete course records with validation
 
 - **Technical Details and Intruction**
-  - First, install the PyMongo package by running the follwoing command:
+  - First, install the PyMongo package by running the following command:
     ```bash
     python -m pip install pymongo
     ```
