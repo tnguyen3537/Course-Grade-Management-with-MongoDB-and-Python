@@ -4,7 +4,7 @@ def pause():
     input("Action complete, press Enter to continue...")
     
 # Course CRUD functions
-def enter_course_grades():
+def enter_course_grade():
     while True:
         course_id = input("Enter course ID to enter grades for (or 0 to exit): ")
         if course_id == "0":
@@ -51,7 +51,7 @@ def enter_course_grades():
     else:
         print("Failed to enter grade. Please try again.")
 
-def modify_course_grades():
+def modify_course_grade():
     while True:
         course_id = input("Enter course ID to enter grades for (or 0 to exit): ")
         if course_id == "0":
@@ -107,7 +107,7 @@ def modify_course_grades():
     else:
         print("Failed to modify grade. Please try again.")
 
-def delete_course_grades():
+def delete_course_grade():
     while True:
         course_id = input("Enter course ID to delete grades from (or 0 to exit): ")
         if course_id == "0":

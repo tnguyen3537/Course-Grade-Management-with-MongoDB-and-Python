@@ -68,7 +68,7 @@ def course_menu():
         print("2 - Create Course")
         print("3 - Update Course")
         print("4 - Delete Course")
-        print("5 - Enter Course Grades")
+        print("5 - Enter Course Grade")
         print("6 - Modify Course Grade")
         print("7 - Delete Course Grade")
         print("8 - View Course Grades")
@@ -88,13 +88,13 @@ def course_menu():
             course_crud.delete_course()
             pause()
         elif choice == "5":
-            course_grade_crud.enter_course_grades()
+            course_grade_crud.enter_course_grade()
             pause()
         elif choice == "6":
-            course_grade_crud.modify_course_grades()
+            course_grade_crud.modify_course_grade()
             pause()
         elif choice == "7":
-            course_grade_crud.delete_course_grades()
+            course_grade_crud.delete_course_grade()
             pause()
         elif choice == "8":
             course_grade_crud.view_course_grades()
@@ -120,7 +120,7 @@ def main():
         "3": course_menu
     }
 
-    # initializer.populate_database()
+    initializer.populate_database()
 
     while True:
         main_menu()

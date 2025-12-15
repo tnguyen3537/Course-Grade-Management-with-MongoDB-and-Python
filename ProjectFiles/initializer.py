@@ -69,33 +69,100 @@ course_data = [
                 "comments": "excellent, did everything on point"
             }
         ]
-    },
+        },
     {
-            "_id": "SOF012AS2AE-3002",
-            "name": "Introduction to NoSQL Databases",
-            "teacher": "dr24831",
-            "topics": ["NoSQL", "Python"],
-            "credit": 3,
-            "semester": "fall",
-            "year": 2025,
-            "student_grades": [
+        "_id": "SOF012AS2AE-3002",
+        "name": "Introduction to NoSQL Databases",
+        "teacher": "dr24831",
+        "topics": ["NoSQL", "Python"],
+        "credit": 3,
+        "semester": "fall",
+        "year": 2025,
+        "student_grades": [
                 {
                     "student_id": "t54011",  
                     "grade": 5,
                     "comments": "Exceptional"
                 }
             ]
-        }
-    ]
+        },
+    {
+        "_id": "FIN002AS2AE-3028",
+        "name": "Finnish Language and Culture 2",
+        "teacher": "t21831",
+        "topics": ["Finnish", "Finnish Level 2", "Conversational Finnish"],
+        "credit": 5,
+        "semester": "fall",
+        "year": 2025,
+        "student_grades": [
+            {
+                "student_id": "t54011",
+                "grade": 3,
+                "comments": "sucks at finnish"
+            },
+            {
+                "student_id": "p45102",
+                "grade": 3,
+                "comments": "sucks at finnish"
+            },
+            {
+                "student_id": "tn43124",
+                "grade": 4,
+                "comments": "ok at finnish"
+            }
+            ]
+        },
+    {
+        "_id": "PLA001HH2AE-3012",
+        "name": "Professional Work Placement",
+        "teacher": "dr24831",
+        "topics": ["Workplace", "Professional Experience"],
+        "credit": 5,
+        "semester": "fall, spring",
+        "year": 2024,
+        "student_grades": [
+            {
+                "student_id": "t54011",
+                "grade": 5,
+                "comments": "did good job at work"
+            },
+            {
+                "student_id": "p45102",
+                "grade": 5,
+                "comments": "did good job at work"
+            },
+            {
+                "student_id": "tn43124",
+                "grade": 5,
+                "comments": "did good job at work"
+            }
+        ]
+    }
+]
 
 
 
 def populate_database():
-    db.teachers.insert_many(teacher_data)
-    db.students.insert_many(student_data)
-    db.courses.insert_many(course_data)
-
-    print("Sample data inserted successfully into 'school' database.")
+    # checks if the teachers collection is empty before inserting data
+    if db.teachers.count_documents({}) == 0:
+        db.teachers.insert_many(teacher_data)
+        print("Inserted initial teacher data.")
+    else:
+        print("Teacher data already exists. Skipping initial insertion.")
+        
+    # checks if the students collection is empty before inserting data
+    if db.students.count_documents({}) == 0:
+        db.students.insert_many(student_data)
+        print("Inserted initial student data.")
+    else:
+        print("Student data already exists. Skipping initial insertion.")
+        
+    # checks if the courses collection is empty before inserting data
+    if db.courses.count_documents({}) == 0:
+        db.courses.insert_many(course_data)
+        print("Inserted initial course data.")
+    else:     
+        print("Course data already exists. Skipping initial insertion.")
     
 if __name__ == "__main__":
     populate_database()
